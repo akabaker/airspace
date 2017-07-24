@@ -7,11 +7,13 @@ import { JQ_TOKEN } from 'app/common/jQuery.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  title: String;
 
   constructor(@Inject(JQ_TOKEN) private $: any) { }
 
   ngOnInit() {
     this.initializeSideNav();
+    this.title = 'Airspace';
   }
 
   initializeSideNav() {
