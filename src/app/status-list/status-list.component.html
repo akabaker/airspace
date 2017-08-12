@@ -2,13 +2,13 @@
   <div class="col s12 m6 l6">
     <div class="card-panel grey lighten-5">
       <h4 class="text-center">In Process Requests</h4>
-      <div class="text-center request-number">4</div>
+      <div class="text-center request-number">{{disclosureRequests?.length}}</div>
     </div>
   </div>
   <div class="col s12 m6 l6">
     <div class="card-panel grey lighten-5">
       <h4 class="text-center">Queued Requests</h4>
-      <div class="text-center request-number">4</div>
+      <div class="text-center request-number">{{disclosureRequests?.length}}</div>
     </div>
   </div>
 </div>
@@ -17,25 +17,18 @@
   <div class="col s12 m12 l12">
     <h4>Current Requests</h4>
   </div>
-  <div class="col s12 m12 l12">
-    <div class="card grey lighten-5">
-      <div class="card-content">
-        <span class="card-title">{{disclosureRequest?.PackageType}}</span>
-      </div>
-      <div class="card-action">
-        <a href="#">Info</a>
+
+  <div class="col-md-5" *ngFor="let disclosureRequest of disclosureRequests">
+    <div class="col s12 m12 l12">
+      <div class="card grey lighten-5">
+        <div class="card-content">
+          <span class="card-title">{{disclosureRequest?.PackageType}}</span>
+        </div>
+        <div class="card-action">
+          <a href="#">Info</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col s12 m12 l12">
-    <div class="card grey lighten-5">
-      <div class="card-content">
-        <span class="card-title">{{disclosureRequest?.PackageType}}</span>
-      </div>
-      <div class="card-action">
-        <a href="#">Info</a>
-      </div>
-    </div>
-  </div>
 </div>

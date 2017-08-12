@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Rx';
 import { IDisclosureRequest } from './models/disclosurerequest.model';
 
 @Injectable()
@@ -12,10 +11,20 @@ export class DisclosurerequestsService {
     this.baseUrl = 'https://localhost/disclosureautomationapi/api';
   }
 
-  getDisclosureRequest(): Observable<IDisclosureRequest> {
-    const url = `${this.baseUrl}/disclosurerequests`;
+  mockGetInProcessRequests(): Observable<IDisclosureRequest[]> {
+    const mockDisclosureRequests: IDisclosureRequest[] = [
+      {PackageType: 'NOI'},
+      {PackageType: 'Initial LE'},
+      {PackageType: 'Initial CD'},
+    ];
+
+    return Observable.of(mockDisclosureRequests);
+  }
+
+  getInProcessRequests(): Observable<IDisclosureRequest[]> {
+    const url = `${this.baseUrl}/InProcessRequests`;
     return this.http.get(url).map((response: Response) => {
-      return <IDisclosureRequest>response.json();
+      return <IDisclosureRequest[]>response.json();
     })
   }
 

@@ -8,7 +8,7 @@ import { DisclosurerequestsService } from '../disclosurerequests.service';
   styleUrls: ['./status-list.component.css']
 })
 export class StatusListComponent implements OnInit {
-  disclosureRequest: IDisclosureRequest;
+  disclosureRequests: IDisclosureRequest[];
 
   constructor(private disclosureRequestsService: DisclosurerequestsService) { }
 
@@ -17,8 +17,9 @@ export class StatusListComponent implements OnInit {
   }
 
   getDisclosureRequest() {
-    this.disclosureRequestsService.getDisclosureRequest().subscribe(x => {
-      this.disclosureRequest = x;
+    this.disclosureRequestsService.mockGetInProcessRequests().subscribe(disclosureRequests => {
+      this.disclosureRequests = disclosureRequests;
+      console.log(disclosureRequests);
     });
   }
 }
