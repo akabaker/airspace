@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { IDisclosureRequest } from './models/disclosurerequest.model';
+import { IDisclosureRequest } from '../models/disclosurerequest.model';
 
 @Injectable()
 export class DisclosurerequestsService {
@@ -17,6 +17,14 @@ export class DisclosurerequestsService {
       {PackageType: 'Initial LE'},
       {PackageType: 'Initial CD'},
     ];
+
+    const min = 1;
+    const max = mockDisclosureRequests.length;
+    const indexToModify = Math.floor(Math.random() * (max - min + 1))
+
+    const requestToSend: IDisclosureRequest[] = [
+      mockDisclosureRequests[indexToModify]
+    ]
 
     return Observable.of(mockDisclosureRequests);
   }
