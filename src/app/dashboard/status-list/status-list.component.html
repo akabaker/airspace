@@ -1,22 +1,11 @@
 <div class="row">
-  <div class="col s12 m6 l6">
-    <div class="card-panel grey lighten-5">
-      <h4 class="text-center">In Process Requests</h4>
-      <div class="text-center request-number">{{disclosureRequests?.length}}</div>
-    </div>
-  </div>
-  <div class="col s12 m6 l6">
-    <div class="card-panel grey lighten-5">
-      <h4 class="text-center">Queued Requests</h4>
-      <div class="text-center request-number">{{disclosureRequests?.length}}</div>
-    </div>
-  </div>
+  <app-inprocess-monitor [inProcessCount]="disclosureRequests?.length"></app-inprocess-monitor>
+  <app-queued-monitor [queuedCount]="disclosureRequests?.length"></app-queued-monitor>
 </div>
 
 <div class="row">
   <div class="col s12 m12 l12">
     <h4>Current Requests</h4>
   </div>
-
   <app-status-list-item *ngFor="let disclosureRequest of disclosureRequests" [disclosureRequest]="disclosureRequest"></app-status-list-item>
 </div>

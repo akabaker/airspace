@@ -10,6 +10,8 @@ import {
   DisclosurerequestsService
 } from './dashboard/index';
 import { StatusListItemComponent } from './dashboard/status-list-item/status-list-item.component';
+import { InprocessMonitorComponent } from './dashboard/inprocess-monitor/inprocess-monitor.component';
+import { QueuedMonitorComponent } from './dashboard/queued-monitor/queued-monitor.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { StatusListItemComponent } from './dashboard/status-list-item/status-lis
     NavComponent,
     StatusListComponent,
     StatusListItemComponent,
+    InprocessMonitorComponent,
+    QueuedMonitorComponent,
   ],
   imports: [
     BrowserModule,

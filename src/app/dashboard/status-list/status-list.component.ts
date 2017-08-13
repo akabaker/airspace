@@ -18,16 +18,6 @@ export class StatusListComponent implements OnInit {
   }
 
   getDisclosureRequest() {
-    /*
-    const timer = Observable.interval(2000)
-                            .timeInterval();
-
-    timer.subscribe((sub) =>
-      this.disclosureRequestsService.mockGetInProcessRequests().subscribe(disclosureRequests => {
-        this.disclosureRequests = disclosureRequests;
-      })
-    );
-    */
     this.disclosureRequestsService.mockGetInProcessRequests().subscribe(disclosureRequests => {
       this.disclosureRequests = disclosureRequests;
     });

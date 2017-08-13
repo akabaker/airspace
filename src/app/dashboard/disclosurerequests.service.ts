@@ -23,10 +23,12 @@ export class DisclosurerequestsService {
     const indexToModify = Math.floor(Math.random() * (max - min + 1))
 
     const requestToSend: IDisclosureRequest[] = [
-      mockDisclosureRequests[indexToModify]
+      mockDisclosureRequests[Math.floor(Math.random() * (max - min + 1))],
+      mockDisclosureRequests[Math.floor(Math.random() * (max - min + 1))],
+      mockDisclosureRequests[Math.floor(Math.random() * (max - min + 1))]
     ]
 
-    return Observable.of(mockDisclosureRequests);
+    return Observable.of(requestToSend);
   }
 
   getInProcessRequests(): Observable<IDisclosureRequest[]> {
