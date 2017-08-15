@@ -38,6 +38,13 @@ export class DisclosurerequestsService {
     })
   }
 
+  getQueuedRequests(): Observable<IDisclosureRequest[]> {
+    const url = `${this.baseUrl}/QueuedRequests`;
+    return this.http.get(url).map((response: Response) => {
+      return <IDisclosureRequest[]>response.json();
+    })
+  }
+
   private handleError(error: Response) {
     return Observable.throw(error.statusText);
   }

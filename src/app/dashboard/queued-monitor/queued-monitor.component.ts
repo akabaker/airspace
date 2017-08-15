@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DisclosurerequestsService } from '../disclosurerequests.service';
 
 @Component({
   selector: 'app-queued-monitor',
@@ -6,11 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./queued-monitor.component.css']
 })
 export class QueuedMonitorComponent implements OnInit {
-  @Input() queuedCount: number
+  queuedCount: number
 
-  constructor() { }
+  constructor(private disclosurerequestsService: DisclosurerequestsService) { }
 
   ngOnInit() {
+    this.getQueuedRequests();
+  }
+
+  getQueuedRequests() {
+    this.disclosurerequestsService.getQueuedRequests().subscribe(disclosureRequests => {
+      this.queuedCount = disclosureRequests.length;
+    });
   }
 
 }

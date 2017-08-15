@@ -18,7 +18,7 @@ export class StatusListComponent implements OnInit {
   }
 
   getDisclosureRequest() {
-    this.disclosureRequestsService.mockGetInProcessRequests().subscribe(disclosureRequests => {
+    this.disclosureRequestsService.getInProcessRequests().subscribe(disclosureRequests => {
       this.disclosureRequests = disclosureRequests;
     });
   }
